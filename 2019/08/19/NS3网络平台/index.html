@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>NS3网络平台 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="NS3网络平台的学习First.cc样本分析 include部分：···#include “ns3/core-module.h”#include “ns3/simulator-module.h”#include “ns3/node-module.h”#include “ns3/helper-module.h”···ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。  命名空间usi">
+  <meta name="description" content="NS3网络平台的学习First.cc样本分析 include部分：1234#include &amp;quot;ns3/core-module.h&amp;quot;#include &amp;quot;ns3/simulator-module.h&amp;quot;#include &amp;quot;ns3/node-module.h&amp;quot;#include &amp;quot;ns3/helper-module.h&amp;quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NS3网络平台">
 <meta property="og:url" content="http://yoursite.com/2019/08/19/NS3网络平台/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="NS3网络平台的学习First.cc样本分析 include部分：···#include “ns3/core-module.h”#include “ns3/simulator-module.h”#include “ns3/node-module.h”#include “ns3/helper-module.h”···ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。  命名空间usi">
+<meta property="og:description" content="NS3网络平台的学习First.cc样本分析 include部分：1234#include &amp;quot;ns3/core-module.h&amp;quot;#include &amp;quot;ns3/simulator-module.h&amp;quot;#include &amp;quot;ns3/node-module.h&amp;quot;#include &amp;quot;ns3/helper-module.h&amp;quot;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-19T05:32:34.369Z">
+<meta property="og:updated_time" content="2019-08-19T05:39:15.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NS3网络平台">
-<meta name="twitter:description" content="NS3网络平台的学习First.cc样本分析 include部分：···#include “ns3/core-module.h”#include “ns3/simulator-module.h”#include “ns3/node-module.h”#include “ns3/helper-module.h”···ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。  命名空间usi">
+<meta name="twitter:description" content="NS3网络平台的学习First.cc样本分析 include部分：1234#include &amp;quot;ns3/core-module.h&amp;quot;#include &amp;quot;ns3/simulator-module.h&amp;quot;#include &amp;quot;ns3/node-module.h&amp;quot;#include &amp;quot;ns3/helper-module.h&amp;quot;">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -175,11 +175,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="NS3网络平台的学习"><a href="#NS3网络平台的学习" class="headerlink" title="NS3网络平台的学习"></a>NS3网络平台的学习</h1><h2 id="First-cc样本分析"><a href="#First-cc样本分析" class="headerlink" title="First.cc样本分析"></a>First.cc样本分析</h2><ul>
-<li><p>include部分：<br>···<br>#include “ns3/core-module.h”<br>#include “ns3/simulator-module.h”<br>#include “ns3/node-module.h”<br>#include “ns3/helper-module.h”<br>···<br>ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。</p>
+<li>include部分：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ns3/core-module.h&quot;</span><br><span class="line">#include &quot;ns3/simulator-module.h&quot;</span><br><span class="line">#include &quot;ns3/node-module.h&quot;</span><br><span class="line">#include &quot;ns3/helper-module.h&quot;</span><br></pre></td></tr></table></figure>
+
 </li>
+</ul>
+<p>ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。</p>
+<ul>
 <li><p>命名空间<br><code>using namespace ns3;    //所有与ns3相关的声明全部在该全局命名空间中，不需要ns3::作用于操作符    功能与c++中的类似</code></p>
 </li>
-<li><p>日志<br>···<br>NS_LOG_COMPONENT_DEFINE (“FirstScriptExample”);    //FirstScriptExample是一个日志构件，通过引用该文件名的操作来实现打开或者关闭控制台日志的输出<br>LogComponentEnable(“UdpEchoClientApplication”, LOG_LEVEL_INFO);<br>LogComponentEnable(“UdpEchoServerApplication”, LOG_LEVEL_INFO);<br>···</p>
+<li><p>日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NS_LOG_COMPONENT_DEFINE (&quot;FirstScriptExample&quot;);	//FirstScriptExample是一个日志构件，通过引用该文件名的操作来实现打开或者关闭控制台日志的输出</span><br><span class="line">LogComponentEnable(&quot;UdpEchoClientApplication&quot;, LOG_LEVEL_INFO);</span><br><span class="line">LogComponentEnable(&quot;UdpEchoServerApplication&quot;, LOG_LEVEL_INFO);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <p>该两行代码用于使日志组件生效（级别：INFO）</p>
