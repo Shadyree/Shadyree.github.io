@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/8 | Hexo</title>
+  <title>NS3网络平台的初步使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/08/index.html">
+  <meta name="description" content="NS3平台的使用  使用ns-3进行网络仿真时，一般经过一下4个步骤：  1、选择或开发相应模块。     2、编写网络仿真脚本：C++或者Python。    编写脚本过程：   1）生成节点（如网卡、应用程序、协议栈等）2）安装网络设备（如CSMA、WiFi）3）安装协议栈：ns-3一般是TCP/IP协议栈4）安装应用层协议5）其他配置（如节点是否要移动，是否要能量管理）      3、启动仿">
+<meta name="keywords" content="NS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NS3网络平台的初步使用">
+<meta property="og:url" content="http://yoursite.com/2019/08/19/NS3网络平台的初步使用/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="NS3平台的使用  使用ns-3进行网络仿真时，一般经过一下4个步骤：  1、选择或开发相应模块。     2、编写网络仿真脚本：C++或者Python。    编写脚本过程：   1）生成节点（如网卡、应用程序、协议栈等）2）安装网络设备（如CSMA、WiFi）3）安装协议栈：ns-3一般是TCP/IP协议栈4）安装应用层协议5）其他配置（如节点是否要移动，是否要能量管理）      3、启动仿">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-19T05:51:56.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="NS3网络平台的初步使用">
+<meta name="twitter:description" content="NS3平台的使用  使用ns-3进行网络仿真时，一般经过一下4个步骤：  1、选择或开发相应模块。     2、编写网络仿真脚本：C++或者Python。    编写脚本过程：   1）生成节点（如网卡、应用程序、协议栈等）2）安装网络设备（如CSMA、WiFi）3）安装协议栈：ns-3一般是TCP/IP协议栈4）安装应用层协议5）其他配置（如节点是否要移动，是否要能量管理）      3、启动仿">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,36 +155,84 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-NS3网络平台的初步使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      NS3网络平台的初步使用
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/19/NS3网络平台的初步使用/" class="archive-article-date">
+
+        
+        <a href="/2019/08/19/NS3网络平台的初步使用/" class="archive-article-date">
   	<time datetime="2019-08-19T05:49:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/19/NS3网络平台的初步使用/">NS3网络平台的初步使用</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="NS3平台的使用"><a href="#NS3平台的使用" class="headerlink" title="NS3平台的使用"></a>NS3平台的使用</h1><blockquote>
+<p> 使用ns-3进行网络仿真时，一般经过一下4个步骤：</p>
+<blockquote>
+<p>1、选择或开发相应模块。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>2、编写网络仿真脚本：C++或者Python。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>编写脚本过程：</p>
+<blockquote>
+<blockquote>
+<p>1）生成节点（如网卡、应用程序、协议栈等）<br>2）安装网络设备（如CSMA、WiFi）<br>3）安装协议栈：ns-3一般是TCP/IP协议栈<br>4）安装应用层协议<br>5）其他配置（如节点是否要移动，是否要能量管理）</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>3、启动仿真。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>4、仿真结果分析。一种是网络场景，另外一种是网络数据</p>
+</blockquote>
+</blockquote>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>不需要嗷<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,57 +244,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/19/NS3网络平台的初步使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/19/NS3网络平台/" class="archive-article-date">
-  	<time datetime="2019-08-19T04:16:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/19/NS3网络平台/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">NS3网络平台</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/19/NS3网络平台/">NS3网络平台</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NS3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -264,8 +366,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
