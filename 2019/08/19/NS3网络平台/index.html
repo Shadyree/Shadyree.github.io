@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>NS3网络平台 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="NS3网络平台的学习First.cc样本分析 include部分：#include &amp;quot;ns3/core-module.h&amp;quot;#include &amp;quot;ns3/simulator-module.h&amp;quot;#include &amp;quot;ns3/node-module.h&amp;quot;#include &amp;quot;ns3/helper-module.h&amp;quot;  ns3所定义">
+  <meta name="description" content="NS3网络平台的学习First.cc样本分析 include部分：···#include “ns3/core-module.h”#include “ns3/simulator-module.h”#include “ns3/node-module.h”#include “ns3/helper-module.h”···ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。  命名空间usi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NS3网络平台">
 <meta property="og:url" content="http://yoursite.com/2019/08/19/NS3网络平台/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="NS3网络平台的学习First.cc样本分析 include部分：#include &amp;quot;ns3/core-module.h&amp;quot;#include &amp;quot;ns3/simulator-module.h&amp;quot;#include &amp;quot;ns3/node-module.h&amp;quot;#include &amp;quot;ns3/helper-module.h&amp;quot;  ns3所定义">
+<meta property="og:description" content="NS3网络平台的学习First.cc样本分析 include部分：···#include “ns3/core-module.h”#include “ns3/simulator-module.h”#include “ns3/node-module.h”#include “ns3/helper-module.h”···ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。  命名空间usi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-19T04:19:33.146Z">
+<meta property="og:updated_time" content="2019-08-19T05:32:34.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NS3网络平台">
-<meta name="twitter:description" content="NS3网络平台的学习First.cc样本分析 include部分：#include &amp;quot;ns3/core-module.h&amp;quot;#include &amp;quot;ns3/simulator-module.h&amp;quot;#include &amp;quot;ns3/node-module.h&amp;quot;#include &amp;quot;ns3/helper-module.h&amp;quot;  ns3所定义">
+<meta name="twitter:description" content="NS3网络平台的学习First.cc样本分析 include部分：···#include “ns3/core-module.h”#include “ns3/simulator-module.h”#include “ns3/node-module.h”#include “ns3/helper-module.h”···ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。  命名空间usi">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -175,14 +175,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="NS3网络平台的学习"><a href="#NS3网络平台的学习" class="headerlink" title="NS3网络平台的学习"></a>NS3网络平台的学习</h1><h2 id="First-cc样本分析"><a href="#First-cc样本分析" class="headerlink" title="First.cc样本分析"></a>First.cc样本分析</h2><ul>
-<li>include部分：<br><code>#include &quot;ns3/core-module.h&quot;</code><br><code>#include &quot;ns3/simulator-module.h&quot;</code><br><code>#include &quot;ns3/node-module.h&quot;</code><br><code>#include &quot;ns3/helper-module.h&quot;</code></li>
-</ul>
-<p>ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。</p>
-<ul>
+<li><p>include部分：<br>···<br>#include “ns3/core-module.h”<br>#include “ns3/simulator-module.h”<br>#include “ns3/node-module.h”<br>#include “ns3/helper-module.h”<br>···<br>ns3所定义的几种分类，如名字所示，这样就不用考虑复杂的依赖关系。</p>
+</li>
 <li><p>命名空间<br><code>using namespace ns3;    //所有与ns3相关的声明全部在该全局命名空间中，不需要ns3::作用于操作符    功能与c++中的类似</code></p>
 </li>
-<li><p>日志<br><code>NS_LOG_COMPONENT_DEFINE (&quot;FirstScriptExample&quot;);    //FirstScriptExample是一个日志构件，通过引用该文件名的操作来实现打开或者关闭控制台日志的输出</code><br><code>LogComponentEnable(&quot;UdpEchoClientApplication&quot;, LOG_LEVEL_INFO);</code><br><code>LogComponentEnable(&quot;UdpEchoServerApplication&quot;, LOG_LEVEL_INFO);</code><br>该两行代码用于使日志组件生效（级别：INFO）</p>
+<li><p>日志<br>···<br>NS_LOG_COMPONENT_DEFINE (“FirstScriptExample”);    //FirstScriptExample是一个日志构件，通过引用该文件名的操作来实现打开或者关闭控制台日志的输出<br>LogComponentEnable(“UdpEchoClientApplication”, LOG_LEVEL_INFO);<br>LogComponentEnable(“UdpEchoServerApplication”, LOG_LEVEL_INFO);<br>···</p>
 </li>
+</ul>
+<p>该两行代码用于使日志组件生效（级别：INFO）</p>
+<ul>
 <li><p>节点对象：NodeContainer类（代表计算机）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NodeContainer nodes;</span><br><span class="line">nodes.Create[2];		//创造了两个节点</span><br></pre></td></tr></table></figure>
 </li>
@@ -210,7 +211,7 @@
 </li>
 </ul>
 <p>地址生成器对象，从10.1.1.0开始以以子网掩码为255.255.255.0分配地址<br>地址分配默认是从 1 开始并单调的增长，所以在这个基础上第一个分配的地址会是 10.1.1.1 ，紧跟着是 10.1.1.2 等等，不能产生相同的IP地址，会产生错误。</p>
-<p><code>Ipv4InterfaceContainer interfaces = address.Assign (devices);</code><br>完成真正的地址配置，运用它来产证数据通信</p>
+<p><code>Ipv4InterfaceContainer interfaces = address.Assign (devices);</code><br>完成真正的地址配置，运用它来产生数据通信</p>
 <ul>
 <li><p>Applications类<br>使用生成器对象来帮助配置和管理前在的对象，UdpEchoServerHelper  和 UdpEchoClientHelper</p>
 </li>
