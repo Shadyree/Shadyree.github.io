@@ -294,63 +294,9 @@ var _hmt = _hmt || [];
 
 </li>
 </ul>
-<p>该两行代码用于使日志组件生效（级别：INFO）</p>
-<ul>
-<li><p>节点对象：NodeContainer类（代表计算机）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NodeContainer nodes;</span><br><span class="line">nodes.Create[2];		//创造了两个节点</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PointToPointHelper类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PointToPointHelper pointToPoint;</span><br><span class="line">pointToPoint.SetDeviceAttribute (&quot;DataRate&quot;, StringValue (&quot;5Mbps&quot;));</span><br><span class="line">pointToPoint.SetChannelAttribute (&quot;Delay&quot;, StringValue (&quot;2ms&quot;));</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>第一行：在栈中初始化了一个PointToPoint对象<br>第二行：从上层角度从上层的角度告诉 PointToPointHelper 对象当创建一个 PointToPointNetDevice 对象时使用 “ 5Mbps” 来作为数据速率。<br>应该是创建的这个对象使用的是5Mbps速率，DeviceAttribute是一个属性<br>第三行：每一个被创建的点到点信道的传输时延为2ms</p>
-<ul>
-<li>NetDeviceContainer类<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NetDeviceContainer devices;</span><br><span class="line">device = pointToPoint.Install(nodes);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>拓扑生成器，用于创造模拟节点，该对象用于存放所有被创建的net Device对象列表<br>使用一个NodeContainer对象作为参数，使用install方法对NetDeviceContainer进行创建，<br>使用该pointToPoint.Install(nodes)后，两个节点，每个节点安装了点到点的网络设备，它们之间是一个点到点的信道。两个设备会被配置在一个有2ms传输延时的信道上，以5M比特每秒的速率传输数据。</p>
-<ul>
-<li>InternetStackHelper类<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InternetStackHelper stack;</span><br><span class="line">stack.Install (nodes);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>该类是用于安装一个PointToPointHelper对象和点到点网络设备的网络协议栈和拓扑生成器类。Install()方法以NodeContainer对像作为参数，执行后，它会为每一个节点容器中的节点安装一个网络协议栈(TCP,UDP,IP等)</p>
-<ul>
-<li>Ipv4AddressHelper类<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ipv4AddressHelper address;</span><br><span class="line">address.SetBase (&quot;10.1.1.0&quot;, &quot;255.255.255.0&quot;);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>地址生成器对象，从10.1.1.0开始以以子网掩码为255.255.255.0分配地址<br>地址分配默认是从 1 开始并单调的增长，所以在这个基础上第一个分配的地址会是 10.1.1.1 ，紧跟着是 10.1.1.2 等等，不能产生相同的IP地址，会产生错误。</p>
-<p><code>Ipv4InterfaceContainer interfaces = address.Assign (devices);</code><br>完成真正的地址配置，运用它来产生数据通信</p>
-<ul>
-<li><p>Applications类<br>使用生成器对象来帮助配置和管理前在的对象，UdpEchoServerHelper  和 UdpEchoClientHelper</p>
-</li>
-<li><p>UdpEchoServerHelper 类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UdpEchoServerHelper echoServer (9);</span><br><span class="line">ApplicationContainer serverApps = echoServer.Install (nodes.Get (1));</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>第一行声明了UdpEchoServerHelper用于创建应用的对象，可以使用setAttribute设置Port参数到另一个值<br>ApplicationContainer的方法Start和Stop可以用来设置应用对象在一个可选时间点开始和停止数据通信</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">serverApps.Start (Seconds (1.0));</span><br><span class="line">serverApps.Stop (Seconds (10.0));</span><br></pre></td></tr></table></figure>
-
-<p>会使 echo 服务应用在 1s 时开始（生效）并在 10s 时停止（失效）。声明了一个模拟事件（就是应用的停止事件）在 10s 时被执行，模拟至少会持续 10s 。</p>
-<ul>
-<li><p>UdpEchoClientHelper 类<br>echo客户端应用的设置与回显服务器类似，也有有一个 UdpEchoClientHelper 来管理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">UdpEchoClientApplication</span><br><span class="line">UdpEchoClientHelper echoClient (interfaces.GetAddress (1), 9);</span><br><span class="line">echoClient.SetAttribute (&quot;MaxPackets&quot;, UintegerValue (1));		//MaxPackets模拟期间能够发送的最大数据包个数</span><br><span class="line">echoClient.SetAttribute (&quot;Interval&quot;, TimeValue (Seconds (1.)));	//Interval表示客户端在两个数据包之间需要等待多长的时间</span><br><span class="line">echoClient.SetAttribute (&quot;PacketSize&quot;, UintegerValue (1024));	//PacketSize表示数据包的数据量大小</span><br><span class="line">ApplicationContainer clientApps = echoClient.Install (nodes.Get (0));</span><br><span class="line">clientApps.Start (Seconds (2.0));</span><br><span class="line">clientApps.Stop (Seconds (10.0));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Simulator 类<br>Simulator::Run()用于实现模拟器的运行<br>当调用以下方法时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">serverApps.Start (Seconds (1.0));</span><br><span class="line">serverApps.Stop (Seconds (10.0));</span><br><span class="line">    ...</span><br><span class="line">clientApps.Start (Seconds (2.0));</span><br><span class="line">clientApps.Stop (Seconds (10.0));</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>实际上是在模拟器中1s，2s和10s预设了时间的发生，当Simulator::Run被调用时，系统会开始遍历预设事件列表并执行</p>
-<p>Simulator::Destroy用于清理所有被创建的对象</p>
-<ul>
-<li>创建自己的脚本文件<br>将自己所创建的脚本放入scratch目录下，并运行waf即可编译</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2019/08/19/NS3网络平台/#more">more >></a>
+        
       
 
       
